@@ -30,6 +30,28 @@ const Index = (props) => {
         setNewForm({ ...newForm, [event.target.name]: event.target.value });
     }
 
+    // Handlesubmit function is responsible for handling the form submission event, handleChange is responsible for 
+    // Updating the form state whenever the input fiekd changes
+
+
+    // 20 Handle submit function for form 
+    const handleSubmit =(event) =>{
+        // prevent the default form submission behavior, which would cause the page to reload
+        event.preventDefault()
+
+        // now the props.createPeople method is called, passing in the "newForm" state as an argument
+        props.createPeople(newForm)
+
+        // after the submission, the input fields are cleared
+        setNewForm({
+            name: "",
+            image: "",
+            title: "",
+          });
+
+    }
+
+
 
 
     // 15 we created a function called loaded that takes no arguments 
