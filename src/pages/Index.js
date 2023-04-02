@@ -89,7 +89,52 @@ const Index = (props) => {
 
     // return <h1>Index Component</h1>
 
+
+
+    // 21) here we create a form
+    // The form element has an onSubmit event handler that is set to the handleSubmit function, 
+    //which is responsible for handling the form submission. 
+    return(
+
+        <section>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              //The value attribute of each input element is set to the corresponding value in the newForm state, 
+              //which allows the form to be controlled by the component's state.
+              value={newForm.name}
+              name="name"
+              placeholder="name"
+              // the onChange event handler is set to the handleChange function,
+              //which updates the state whenever an input field changes.
+              onChange={handleChange}
+            />
+            <input
+              type="text"
+              value={newForm.image}
+              name="image"
+              placeholder="image URL"
+              onChange={handleChange}
+            />
+            <input
+              type="text"
+              value={newForm.title}
+              name="title"
+              placeholder="title"
+              onChange={handleChange}
+            />
+            {/* ther is a submit button tha ttriggers the form submission when clicked */}
+            <input type="submit" value="Create Person" />
+          </form>
+          {/* before we added this on top but this line of code 
+          //tertiary operator that checks IF the prop.people property exists, if it does, then it will 
+          // load the loaded function, otherwise it will load the loading function */}
+          {props.people ? loaded() : loading()}
+        </section>
     
+    
+    
+        )
 
 
 }
