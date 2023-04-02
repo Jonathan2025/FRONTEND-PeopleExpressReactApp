@@ -10,6 +10,19 @@ import { Link } from "react-router-dom"
 
 const Index = (props) => {
 
+
+
+    // 18 - 21 Now we start creating the actual form that will allow the use to enter in new information about a person 
+    // 18) here we need to create state for the form, initial value for name, image and title is ""
+    // the setnewForm function will update the state
+    const [newForm, setNewForm] = useState({
+        name: "",
+        image: "",
+        title: "",
+      });
+
+
+
     // 15 we created a function called loaded that takes no arguments 
     const loaded = () => {
         console.log("you have accessed the loaded function")
@@ -34,15 +47,20 @@ const Index = (props) => {
         return <h1>Loading ...</h1>
     }
 
-    //17 tertiary operator 
-    return(props.people ? loaded() : loading())
-    
+    //17 tertiary operator that checks IF the prop.people property exists, if it does, then it will 
+    // load the loaded function, otherwise it will load the loading function
+    // return(props.people ? loaded() : loading())
+
 
 
 
 
 
     // return <h1>Index Component</h1>
+
+    
+
+
 }
 
 export default Index
