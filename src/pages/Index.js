@@ -12,6 +12,7 @@ const Index = (props) => {
 
     // 15 we created a function called loaded that takes no arguments 
     const loaded = () => {
+        console.log("you have accessed the loaded function")
         // now we access our "people" props object and then use the MAP function to access each individual person in props
         // This is in connection with step 14 on Main.js
         return (props.people.map((person) => (
@@ -28,12 +29,20 @@ const Index = (props) => {
         )))   
     }
 
+    // 16 Data isnt loaded
+    const loading = () => {
+        return <h1>Loading ...</h1>
+    }
+
+    //17 tertiary operator 
+    return(props.people ? loaded() : loading())
+    
 
 
 
 
 
-    return <h1>Index Component</h1>
+    // return <h1>Index Component</h1>
 }
 
 export default Index
