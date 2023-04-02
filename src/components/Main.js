@@ -7,9 +7,21 @@ import Index from "../pages/Index"
 import Show from "../pages/Show"
 
 
-// 7 now we remove the return boiler plate and then we added the routes here
 
 const Main = (props) => {
+    //10 ) now we will need to have API calls and then pass it down to index and show components
+    // we need to set the state 
+    const [people, setPeople] = useState(null)
+    // typically you would put the URL in an ENV file, you would hide this
+    // this URL would be the deployed route that you are using 
+    const URL = "http://localhost:4000/people/"
+    
+    
+    
+    
+    
+    
+    // 7 now we remove the return boiler plate and then we added the routes here
     return(
         <main>
             <Routes>
