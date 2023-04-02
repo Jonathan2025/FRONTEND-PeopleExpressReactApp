@@ -22,6 +22,15 @@ const Show = (props) => {
 
 
 
+    // 28) HandleSubmit and HandleChange for the form 
+    const handleChange = (event) => {
+        // whatever gets changed, we change it to event.target.value
+        setEditForm({ ...editForm, [event.target.name]: event.target.value });
+    }
+
+
+
+
     // 27 the component then renders the information of the found person by displaying their name, title and image
     return (
         <div className="person">
