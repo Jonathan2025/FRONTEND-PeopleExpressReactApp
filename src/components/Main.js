@@ -26,6 +26,14 @@ const Main = (props) => {
         // here we are UPDATING the state of the people component with the data that is recieved
         setPeople(data.data)
     }
+
+
+
+    //12 Now we also need the useEffect, basically it will make a call to the getPeople Function 
+    // the data is fetched and displayed as soon as the component is rendered on the page
+    useEffect(()=> {
+        getPeople()
+    }, [])
     
     
     
