@@ -47,6 +47,28 @@ const Main = (props) => {
     }
 
 
+    // 23 updatePepl is a update people function that takes a parameter "person" and "id"
+    const updatePeople = async (person, id) => {
+        // make put request to the url specified in URL + id 
+        // use the fetch method to make the request and include an object as second argument 
+        // the object specifies the HTTP method (PUT), the content type as JSON, request body as the stringified "person" object 
+        await fetch(URL + id, {
+            method:"PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            // we add this stringify so that we can add this to req.body
+            body: JSON.stringify(person)
+        })
+        // update the list of people with the getPeople function
+        getPeople()
+    }
+
+
+
+
+
+
 
 
     //12 Now we also need the useEffect, basically it will make a call to the getPeople Function 
@@ -69,8 +91,18 @@ const Main = (props) => {
 
 
 
-
-                <Route path="/people/:id" element={<Show/>}/>
+                {/* 24 now we want to slip in the prop */}
+                {/* within the "Show" component, the updatePeople function is used to update a specific person  */}
+                {/* therefore the updatePeoplefunction defined above, is used here to update people when the Show component is rendered */}
+                <Route path="/people/:id" element={<Show
+                people={people}
+                updatePeople={updatePeople}
+                
+                
+                
+                
+                
+                />}/>
             </Routes>
         </main>
     )
