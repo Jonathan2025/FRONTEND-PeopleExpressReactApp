@@ -17,7 +17,15 @@ const Main = (props) => {
     const URL = "http://localhost:4000/people/"
     
     
-    
+    //11 we will make an API call within the getPeople
+    const getPeople = async() => {
+        const response = await fetch(URL)
+        const data = await response.json()
+        // always console.log the data we get so we know whats inside of it
+        console.log(data.data)
+        // here we are UPDATING the state of the people component with the data that is recieved
+        setPeople(data.data)
+    }
     
     
     
