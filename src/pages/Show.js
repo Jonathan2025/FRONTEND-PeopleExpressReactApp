@@ -28,7 +28,7 @@ const Show = (props) => {
         setEditForm({ ...editForm, [event.target.name]: event.target.value });
     }
 
-    // handlesubmit function which is called when use submits the form by clicking a button
+    // 28 handlesubmit function which is called when use submits the form by clicking a button
     const handleSubmit = (event) => {
         event.preventDefault() // prevent the default form submission behavior tha twould cause the page to reload
         // updatePeople takes 2 arguments: an object representing the edited form data and the id of ther perosn being edited
@@ -38,12 +38,48 @@ const Show = (props) => {
     }
 
 
+
+
+
+
+
+
+
     // 27 the component then renders the information of the found person by displaying their name, title and image
     return (
         <div className="person">
           <h1>{person.name}</h1>
           <h2>{person.title}</h2>
           <img src={person.image} alt={person.name} />
+
+
+
+        {/* 29 added in the form element which is linked with the handleSubmit and the handleChange functions above<form onSubmit={handleSubmit}> */}
+        {/* there are three inputs for the form, name image and title */}
+        <form onSubmit={handleSubmit}>
+            <input
+            type="text"
+            value={editForm.name}
+            name="name"
+            placeholder="name"
+            onChange={handleChange}
+            />
+            <input
+            type="text"
+            value={editForm.image}
+            name="image"
+            placeholder="image URL"
+            onChange={handleChange}
+            />
+            <input
+            type="text"
+            value={editForm.title}
+            name="title"
+            placeholder="title"
+            onChange={handleChange}
+            />
+            <input type="submit" value="Update Person" />
+        </form>                
         </div>
       )
 
