@@ -29,6 +29,26 @@ const Main = (props) => {
 
 
 
+    //13 an asynchonous create people function that takes a parameter person
+    const createPeople = async(person) => {
+        // makes a POST request to the URL specified in URL (First argument)
+        // use the Fetch method to make the request and include an objects as second argument 
+        // the object specifies the HTTP method(POST), the content-type as json, request body as the stringified "person" object
+        await fetch(URL, {
+            method: "POST", 
+            headers: {
+                "Content-Type": "application/json",
+            }, 
+            // we add this stringify so that we can add this to req.body
+            body: JSON.stringify(person)
+        })
+        // Now update the state with the new list of people
+        getPeople()
+    }
+
+
+
+
     //12 Now we also need the useEffect, basically it will make a call to the getPeople Function 
     // the data is fetched and displayed as soon as the component is rendered on the page
     useEffect(()=> {
@@ -42,7 +62,14 @@ const Main = (props) => {
         <main>
             <Routes>
                 {/* Here we defined 2 routes. When the user types in "/" path, the element prop will render the INDEX component*/}
-                <Route path="/" element={<Index/>}/>
+                
+                {/* 14 Now we added in the props, people and createPeople */}
+                <Route path="/" element={<Index people={people}
+                createPeople={createPeople} />}/>
+
+
+
+
                 <Route path="/people/:id" element={<Show/>}/>
             </Routes>
         </main>
