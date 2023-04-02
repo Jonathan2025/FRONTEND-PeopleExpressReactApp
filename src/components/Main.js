@@ -7,9 +7,18 @@ import Index from "../pages/Index"
 import Show from "../pages/Show"
 
 
+// 7 now we remove the return boiler plate and then we added the routes here
 
 const Main = (props) => {
-    return <h1>Component Name</h1>
+    return(
+        <main>
+            <Routes>
+                {/* Here we defined 2 routes. When the user types in "/" path, the element prop will render the INDEX component*/}
+                <Route path="/" element={<Index/>}/>
+                <Route path="/people/:id" element={<Show/>}/>
+            </Routes>
+        </main>
+    )
 }
 
 export default Main
