@@ -28,7 +28,14 @@ const Show = (props) => {
         setEditForm({ ...editForm, [event.target.name]: event.target.value });
     }
 
-
+    // handlesubmit function which is called when use submits the form by clicking a button
+    const handleSubmit = (event) => {
+        event.preventDefault() // prevent the default form submission behavior tha twould cause the page to reload
+        // updatePeople takes 2 arguments: an object representing the edited form data and the id of ther perosn being edited
+        props.updatePeople(editForm, person._id)
+        // redirect people back to index page AFTER the use edits the information
+        navigate("/");
+    }
 
 
     // 27 the component then renders the information of the found person by displaying their name, title and image
