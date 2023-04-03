@@ -59,6 +59,11 @@ const Show = (props) => {
           <img src={person.image} alt={person.name} />
 
 
+        {/* 31 we need to add the form and the button */}
+        <button id="delete" onClick={removePerson}>
+            DELETE
+        </button>
+
 
         {/* 29 added in the form element which is linked with the handleSubmit and the handleChange functions above<form onSubmit={handleSubmit}> */}
         {/* there are three inputs for the form, name image and title */}
