@@ -37,8 +37,14 @@ const Show = (props) => {
         navigate("/");
     }
 
+    // 30 now we need to add the remove person
+    // this calls the delete person function from main.js step 28
+    const removePerson = (e) => {
+        e.preventDefault()
+        props.deletePeople(person._id) // this takes an argument person._id and then removes the person with that ID from the list of people
+        navigate("/"); // then the use is navigated back the root URL
+      }
 
-    
 
 
 
