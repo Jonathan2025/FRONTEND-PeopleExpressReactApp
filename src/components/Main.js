@@ -40,7 +40,7 @@ const Main = (props) => {
                 "Content-Type": "application/json",
             }, 
             // we add this stringify so that we can add this to req.body
-            body: JSON.stringify(person)
+            body: JSON.stringify(person),
         })
         // Now update the state with the new list of people
         getPeople()
@@ -58,7 +58,7 @@ const Main = (props) => {
                 "Content-Type": "application/json",
             },
             // we add this stringify so that we can add this to req.body
-            body: JSON.stringify(person)
+            body: JSON.stringify(person),
         })
         // update the list of people with the getPeople function
         getPeople()
@@ -66,6 +66,7 @@ const Main = (props) => {
 
     // 28) async function to deletePeople using the delete method
     const deletePeople = async (id) => {
+        console.log("We hit the delete people function in main.js")
         // make post request to create people
         await fetch(URL + id, {
             method: "DELETE",

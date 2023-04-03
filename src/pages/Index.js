@@ -23,7 +23,7 @@ const Index = (props) => {
 
     
     // 19) We need a handleChange function for the form
-    const handleChanges = (event) => {
+    const handleChange = (event) => {
         // the setNewForm function takes an argument that specifies the new state value 
         // new state is created by spreading the current state using the spread operator and then overwriting the property 
         // with the same name as the input field that triggered the event
