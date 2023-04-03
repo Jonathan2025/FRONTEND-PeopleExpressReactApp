@@ -64,7 +64,15 @@ const Main = (props) => {
         getPeople()
     }
 
-
+    // 28) async function to deletePeople using the delete method
+    const deletePeople = async (id) => {
+        // make post request to create people
+        await fetch(URL + id, {
+            method: "DELETE",
+        });
+        // update list of people
+        getPeople();
+      };
 
 
 
@@ -98,7 +106,8 @@ const Main = (props) => {
                 people={people}
                 updatePeople={updatePeople}
                 
-                
+                // 29 rmb to add the props for delete person 
+                deletePeople = {deletePeople}
                 
                 
                 
